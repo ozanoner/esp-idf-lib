@@ -16,8 +16,13 @@
 #include <esp_log.h>
 #include <esp_idf_lib_helpers.h>
 #include "tsl2561.h"
+#include "sdkconfig.h"
 
+#ifdef CONFIG_I2C_FREQ_HZ
+#define I2C_FREQ_HZ CONFIG_I2C_FREQ_HZ
+#else
 #define I2C_FREQ_HZ 400000 // 400kHz
+#endif
 
 static const char *TAG = "TSL2561";
 

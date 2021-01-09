@@ -14,8 +14,14 @@
 #include <esp_log.h>
 #include <esp_idf_lib_helpers.h>
 #include "bmp280.h"
+#include "sdkconfig.h"
 
+#ifdef CONFIG_I2C_FREQ_HZ
+#define I2C_FREQ_HZ CONFIG_I2C_FREQ_HZ
+#else
 #define I2C_FREQ_HZ 1000000 // Max 1MHz for esp-idf
+#endif
+
 
 static const char *TAG = "BMP280";
 
